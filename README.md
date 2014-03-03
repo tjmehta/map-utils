@@ -62,7 +62,7 @@ var arr = [
   }
 ];
 
-arr.map(utils.pick('foo', 'bar')); // [1, 2]
+arr.map(utils.pluck('foo')); // [1, 2]
 ```
 
 ## set
