@@ -1,12 +1,12 @@
 map-utils
 ========
 
-util functions that tj commonly uses
+### works with great with Array.map
 
 ## exists
 ### return true for any value other than ull or undefined
 ```js
-var utils = require('tj-utils');
+var utils = require('map-utils');
 
 utils.exists(null);      // false
 utils.exists(undefined); // false
@@ -15,9 +15,8 @@ utils.exists('foo');     // true
 
 ## pick
 ### returns a function which accepts an object and return a new object with the keys specified
-### works with great with Array.map
 ```js
-var utils = require('tj-utils');
+var utils = require('map-utils');
 var arr = [
   {
     foo: 1,
@@ -48,9 +47,8 @@ arr.map(utils.pick('foo', 'bar'));
 
 ## pluck
 ### returns a function which accepts an object and returns the value of the key specified
-### works with great with Array.map
 ```js
-var utils = require('tj-utils');
+var utils = require('map-utils');
 var arr = [
   {
     foo: 1,
@@ -69,9 +67,8 @@ arr.map(utils.pick('foo', 'bar')); // [1, 2]
 
 ## set
 ### accepts obj or key val arguments and returns a function which accepts an object which those key/values will be set on
-### works with great with Array.map
 ```js
-var utils = require('tj-utils');
+var utils = require('map-utils');
 var arr1 = [
   {
     foo: 1,
