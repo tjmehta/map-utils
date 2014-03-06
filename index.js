@@ -1,6 +1,6 @@
 module.exports = {
   exists: function (v) {
-    return v != null && v != undefined;
+    return v !== null && v !== undefined;
   },
   pick: function (/* keys */) {
     var keys = Array.prototype.slice.call(arguments);
