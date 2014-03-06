@@ -1,4 +1,4 @@
-map-utils
+map-utils [![Build Status](https://travis-ci.org/tjmehta/map-utils.png)](https://travis-ci.org/tjmehta/map-utils)
 ========
 
 ### works with great with Array.map
