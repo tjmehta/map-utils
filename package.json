@@ -1,6 +1,6 @@
 {
   "name": "map-utils",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "map util functions, map, utils, pick, pluck, set, exists",
   "main": "index.js",
   "scripts": {
