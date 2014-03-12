@@ -12,6 +12,18 @@ module.exports = {
       return out;
     };
   },
+  omit: function (/* omitKeys */) {
+    var omitKeys = Array.prototype.slice.call(arguments);
+    return function (obj) {
+      var out = {};
+      Object.keys(obj).forEach(function (key) {
+        if (!~omitKeys.indexOf(key)) {
+          out[key] = obj[key];
+        }
+      });
+      return out;
+    };
+  },
   pluck: function (key) {
     return function (obj) {
       return obj[key];
@@ -24,6 +36,15 @@ module.exports = {
     return function (obj) {
       Object.keys(updateSet).forEach(function (key) {
         obj[key] = updateSet[key];
+      });
+      return obj;
+    };
+  },
+  unset: function (/* keys */) {
+    var keys = Array.prototype.slice.call(arguments);
+    return function (obj) {
+      keys.forEach(function (key) {
+        delete obj[key];
       });
       return obj;
     };

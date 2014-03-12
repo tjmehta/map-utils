@@ -34,8 +34,32 @@ describe('pick', function () {
   });
 });
 
-describe('pick', function () {
-  it('should pick a and return key from an object', function () {
+describe('omit', function () {
+  it('should omit a key from an object', function () {
+    var obj = {
+      foo: 1,
+      bar: 2,
+      qux: 3
+    };
+    utils.omit('foo')(obj).should.eql({
+      bar: 2,
+      qux: 3
+    });
+  });
+  it('should omit multiple keys from an object', function () {
+    var obj = {
+      foo: 1,
+      bar: 2,
+      qux: 3
+    };
+    utils.omit('foo', 'qux')(obj).should.eql({
+      bar: 2
+    });
+  });
+});
+
+describe('pluck', function () {
+  it('should pluck a key from an object', function () {
     var obj = {
       foo: 1,
       bar: 2,
@@ -63,6 +87,32 @@ describe('set', function () {
     utils.set(set)(obj).should.eql({
       foo: 1,
       bar: 2,
+      qux: 3
+    });
+  });
+});
+
+describe('unset', function () {
+  it('should unset a key and value on an object', function () {
+    var obj = {
+      foo: 1,
+      bar: 2,
+      qux: 3
+    };
+    utils.unset('foo')(obj);
+    obj.should.eql({
+      bar: 2,
+      qux: 3
+    });
+  });
+  it('should unset multiple keys and values on an object', function () {
+    var obj = {
+      foo: 1,
+      bar: 2,
+      qux: 3
+    };
+    utils.unset('foo', 'bar')(obj);
+    obj.should.eql({
       qux: 3
     });
   });
