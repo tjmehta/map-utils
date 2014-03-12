@@ -14,7 +14,7 @@ utils.exists('foo');     // true
 ```
 
 ## pick
-### returns a function which accepts an object and return a new object with the keys specified
+### accepts keys and returns a function which accepts an object and return a new object with the keys specified
 ```js
 var utils = require('map-utils');
 var arr = [
@@ -45,8 +45,38 @@ arr.map(utils.pick('foo', 'bar'));
 */
 ```
 
+## omit
+### accepts keys and returns a function which accepts an object and returns a new object without the keys specified
+```js
+var utils = require('map-utils');
+var arr = [
+  {
+    foo: 1,
+    bar: 1,
+    qux: 1
+  },
+  {
+    foo: 2,
+    bar: 2,
+    qux: 2
+  }
+];
+
+arr.map(utils.omit('foo', 'bar'));
+/*
+  [
+    {
+      qux: 1
+    },
+    {
+      qux: 2
+    }
+  ]
+*/
+```
+
 ## pluck
-### returns a function which accepts an object and returns the value of the key specified
+### accepts keys and returns a function which accepts an object and returns the value of the key specified
 ```js
 var utils = require('map-utils');
 var arr = [
@@ -90,7 +120,7 @@ var arr2 = [
 
 arr1.map(utils.set('qux', 1));
 arr2.map(utils.set({ bar:1, qux:1 }));
-/* both return:
+/* both arr and arr2 becom:
   [
     {
       foo: 1,
@@ -101,6 +131,38 @@ arr2.map(utils.set({ bar:1, qux:1 }));
       foo: 2,
       bar: 1,
       qux: 1
+    }
+  ]
+*/
+```
+
+## unset
+### accepts keys and returns a function which accepts an object which those keys will be deleted from
+```js
+var utils = require('map-utils');
+var arr = [
+  {
+    foo: 1,
+    bar: 1,
+    qux: 1
+  },
+  {
+    foo: 2,
+    bar: 2,
+    qux: 2
+  }
+];
+
+arr.map(utils.unset('foo', 'bar'));
+/* arr becomes:
+  [
+    {
+      foo: 1,
+      bar: 1
+    },
+    {
+      foo: 2,
+      bar: 2
     }
   ]
 */
