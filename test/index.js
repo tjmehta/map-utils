@@ -32,6 +32,17 @@ describe('pick', function () {
       qux: 3
     });
   });
+  it('should pick multiple keys from an object (as an array)', function () {
+    var obj = {
+      foo: 1,
+      bar: 2,
+      qux: 3
+    };
+    utils.pick(['foo', 'qux'])(obj).should.eql({
+      foo: 1,
+      qux: 3
+    });
+  });
 });
 
 describe('omit', function () {

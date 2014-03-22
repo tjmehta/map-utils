@@ -3,7 +3,8 @@ module.exports = {
     return v !== null && v !== undefined;
   },
   pick: function (/* keys */) {
-    var keys = Array.prototype.slice.call(arguments);
+    var keys = Array.isArray(arguments[0]) ? arguments[0] :
+      Array.prototype.slice.call(arguments);
     return function (obj) {
       var out = {};
       keys.forEach(function (key) {
