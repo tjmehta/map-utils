@@ -2,6 +2,11 @@ module.exports = {
   exists: function (v) {
     return v !== null && v !== undefined;
   },
+  matches: function (re) {
+    return function (str) {
+      return re.test(str);
+    };
+  },
   pick: function (/* keys */) {
     var keys = Array.isArray(arguments[0]) ? arguments[0] :
       Array.prototype.slice.call(arguments);

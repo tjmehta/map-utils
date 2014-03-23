@@ -12,6 +12,15 @@ describe('exists', function () {
   });
 });
 
+describe('matches', function () {
+  it('should return true if string matches', function () {
+    utils.matches(/hello/)('hello').should.equal(true);
+  });
+  it('should return false if string does not match', function () {
+    utils.matches(/hey/)('hello').should.equal(false);
+  });
+});
+
 describe('pick', function () {
   it('should pick a key from an object', function () {
     var obj = {
