@@ -1,3 +1,6 @@
+DEPRECATED - use [tjmehta/101](https://github.com/tjmehta/101)
+========
+
 map-utils [![Build Status](https://travis-ci.org/tjmehta/map-utils.png)](https://travis-ci.org/tjmehta/map-utils)
 ========
 
